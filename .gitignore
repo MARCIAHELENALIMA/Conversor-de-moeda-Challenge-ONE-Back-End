@@ -1,23 +1,26 @@
-# Arquivos e diretórios específicos da IDE IntelliJ
-.idea/
-*.iml
 
-# Diretório de compilação do Maven
-/target/
-
-# Arquivos de log
-*.log
+# Arquivos e diretórios específicos da IDE Eclipse
+.metadata/
+bin/
+.settings/
 
 # Diretório específico do Maven Wrapper
 .mvn/
 mvnw
 mvnw.cmd
 
+# Arquivos de configuração do Eclipse
+.classpath
+.project
+
+# Diretório de saída de compilação do Eclipse
+target/
+
 # Outros arquivos e diretórios que podem ser gerados durante a compilação ou execução
 /out/
 
 # Bibliotecas binárias
-/lib/
+/libs/
 
 # Evitar arquivos de sistema
 .DS_Store  # para usuários de MacOS
