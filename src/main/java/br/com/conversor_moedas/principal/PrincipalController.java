@@ -15,8 +15,12 @@ import java.util.Locale;
 
 import java.util.Map;
 
+/**
+ * Controlador da interface gráfica do aplicativo Conversor de Moedas.
+ */
 public class PrincipalController {
 
+    // Mapeamento dos componentes da interface para os elementos do FXML
     @FXML
     private ComboBox<String> comboBoxMoedaDe;
 
@@ -44,6 +48,7 @@ public class PrincipalController {
     @FXML
     private Button BotaoSair;
 
+    // Mapeamento das moedas para os caminhos das imagens das bandeiras
     private Map<String, String> moedaToImagePath = Map.of(
             "Reais", "/br/com/conversor_moedas/img/br.png",
             "Dólares", "/br/com/conversor_moedas/img/eua.png",
@@ -53,14 +58,20 @@ public class PrincipalController {
             "Peso Chileno", "/br/com/conversor_moedas/img/clp.png"
     );
 
+    /**
+     * Método chamado quando a interface é inicializada.
+     * Configura os elementos da interface e define as ações dos botões.
+     */
     @FXML
     private void initialize() {
+        // Configuração das ComboBoxes e ComboBox de taxa
         comboBoxMoedaDe.setCellFactory(param -> new MoedaListCell(moedaToImagePath));
         comboBoxMoedaDe.setButtonCell(new MoedaListCell(moedaToImagePath));
 
         comboBoxMoedaPara.setCellFactory(param -> new MoedaListCell(moedaToImagePath));
         comboBoxMoedaPara.setButtonCell(new MoedaListCell(moedaToImagePath));
 
+        // Adiciona opções às ComboBoxes e define valores iniciais
         comboBoxMoedaDe.getItems().addAll(
                 "Reais",
                 "Dólares",
@@ -87,33 +98,37 @@ public class PrincipalController {
                 "+/- 4%",
                 "+/- 5% (Taxa típica de quiosque)"
         );
+
+        // Define os valores iniciais das ComboBoxes e ComboBox de taxa
         comboBoxMoedaDe.setValue("Reais");
         comboBoxMoedaPara.setValue("Dólares");
         ConverteTaxa.setValue("+/- 0%");
 
-
+        // Define as ações dos botões
         BotaoConversao.setOnAction(event -> converterMoeda());
         BotaoTaxa.setOnAction(event -> calcularTaxa());
         BotaoSair.setOnAction(event -> Platform.exit());
     }
 
+    // Método para validar a entrada do usuário
     private boolean isValidInput() {
         String inputValue = InsereValor.getText();
         if (inputValue == null || inputValue.trim().isEmpty()) {
-            showAlert("Erro", "Por favor, insira um valor.");
+            showAlert("Erro", "Por favorzinho, insira um valor.");
             return false;
         }
 
         try {
             Double.parseDouble(inputValue);
         } catch (NumberFormatException e) {
-            showAlert("Erro", "Por favor, insira um valor numérico válido.");
+            showAlert("Erro", "Por favorzinho, insira um valor numérico válido.");
             return false;
         }
 
         return true;
     }
 
+    // Método para exibir uma caixa de diálogo de erro
     private void showAlert(String title, String message) {
         Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle(title);
@@ -122,6 +137,7 @@ public class PrincipalController {
         alert.showAndWait();
     }
 
+    // Método para realizar a conversão de moeda
     private void converterMoeda() {
         if (!isValidInput()) {
             return;
@@ -141,7 +157,7 @@ public class PrincipalController {
         ResultadoConversao.setText(format.format(resultado));
     }
 
-
+    // Método para calcular e exibir a taxa aplicada
     private void calcularTaxa() {
         Funcao funcao = new Funcao();
         String taxaSelecionada = ConverteTaxa.getValue();
@@ -153,7 +169,7 @@ public class PrincipalController {
             Number number = format.parse(ResultadoConversao.getText());
             valorConvertido = number.doubleValue();
         } catch (ParseException e) {
-            showAlert("Erro", "Houve um erro ao analisar o resultado da conversão.");
+            showAlert("Erro", "Houve um erro ao analisar o resultado da conversão. Não fique chateado comigo");
             return;
         }
 
@@ -163,7 +179,7 @@ public class PrincipalController {
         ResultadoTaxa.setText(format.format(resultadoTaxa));
     }
 
-
+    // Classe interna para personalizar a exibição das moedas nas ComboBoxes
     private static class MoedaListCell extends ListCell<String> {
         private final Map<String, String> moedaToImagePath;
 
@@ -182,11 +198,11 @@ public class PrincipalController {
                 Image img = new Image(getClass().getResourceAsStream(moedaToImagePath.get(moeda)));
                 ImageView imageView = new ImageView(img);
 
-
+                // Define o tamanho da imagem da bandeira
                 imageView.setFitHeight(20);
                 imageView.setFitWidth(20);
 
-
+                // Cria um recorte circular na imagem da bandeira
                 Circle circleClip = new Circle(10, 10, 10);
                 imageView.setClip(circleClip);
 

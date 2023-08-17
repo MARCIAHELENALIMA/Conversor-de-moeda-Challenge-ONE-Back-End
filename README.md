@@ -2,9 +2,9 @@
 
 Um aplicativo em Java que converte entre várias moedas. Este conversor usa uma API para obter cotações em tempo real e apresenta uma interface de usuário desenvolvida com JavaFX.
 
-<p align="center">
+<!--<p align="center">
   <img src="https://github.com/diovani-dupont/ChallengeOne_Conversor_Moeda/assets/109030838/b5522372-07d9-49b0-93b6-9e4b605daab9" alt="Conversor_de_Moeda" width="400">
-</p>
+</p>-->
 
 ## 🔍 Características
 
@@ -79,12 +79,12 @@ Este projeto está licenciado sob a licença MIT - consulte o arquivo `LICENSE.m
 
 ## 🚀Créditos
 
-Desenvolvido por Diovani Dupont.
+Desenvolvido por Márcia Helena, com auxilio de amigos quando tive dúvidas.
 
 <h2 align="center">Recompensa de conclusão do desafio!</h2>
 
 <p align="center">
-  <img src="https://github.com/diovani-dupont/ChallengeOne_Conversor_Moeda/assets/109030838/fab5dc4c-9ee3-49fc-b6b4-ac7790179352">
+  <img src="https://github.com/MARCIAHELENALIMA/Conversor-de-moeda-Challenge-ONE-Back-End/blob/main/marcia-helena.png">
 </p>
 
 

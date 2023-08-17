@@ -1,11 +1,23 @@
 package br.com.conversor_moedas.conversorMoedas;
 
+/**
+ * Classe responsável por realizar conversões de moedas e aplicar taxas sobre valores convertidos.
+ */
 public class Funcao {
 
+    // Instâncias das classes de conversão
     ConverteMoedas moedas = new ConverteMoedas();
     ConverteMoedasParaReais reais = new ConverteMoedasParaReais();
 
-
+    /**
+     * Realiza a conversão entre moedas ou de moeda para reais.
+     *
+     * @param moedaOrigem    Moeda de origem.
+     * @param moedaDestino   Moeda de destino.
+     * @param valorRecebido  Valor a ser convertido.
+     * @return Valor convertido na moeda de destino ou em reais.
+     * @throws IllegalArgumentException Se a combinação de moedas não for suportada.
+     */
     public double converterMoeda(String moedaOrigem, String moedaDestino, double valorRecebido) {
         String combinacaoMoedas = moedaOrigem + " para " + moedaDestino;
 
@@ -46,6 +58,13 @@ public class Funcao {
         }
     }
 
+    /**
+     * Aplica uma taxa sobre um valor convertido.
+     *
+     * @param valorConvertido Valor já convertido.
+     * @param taxaSelecionada Taxa a ser aplicada (em formato de string).
+     * @return Valor após a aplicação da taxa.
+     */
     public double aplicarTaxa(double valorConvertido, String taxaSelecionada) {
         double taxa;
 
