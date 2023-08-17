@@ -3,7 +3,7 @@
 Um aplicativo em Java que converte entre várias moedas. Este conversor usa uma API para obter cotações em tempo real e apresenta uma interface de usuário desenvolvida com JavaFX.
 
 <p align="center">
-  <img src="https://github.com/MARCIAHELENALIMA/Conversor-de-moeda-Challenge-ONE-Back-End/blob/main/detalhamento.mp4" alt="Conversor_de_Moeda" width="400">
+  <img src="https://www.youtube.com/watch?v=Y7ZiHIX9FbI" alt="Conversor_de_Moeda" width="400">
 </p>
 
 ## 🔍 Características
